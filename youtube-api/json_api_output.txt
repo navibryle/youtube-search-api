@@ -1,0 +1,58 @@
+{result: {…}, body: "{↵ "kind": "youtube#searchListResponse",↵ "etag": …    "liveBroadcastContent": "none"↵   }↵  }↵ ]↵}↵", headers: {…}, status: 200, statusText: null}
+result:
+kind: "youtube#searchListResponse"
+etag: ""SJZWTG6xR0eGuCOh2bX6w3s4F94/Eyp7myrfO8WgEU4B94s0vWI8dHY""
+nextPageToken: "CAUQAA"
+regionCode: "CA"
+pageInfo:
+totalResults: 1119
+resultsPerPage: 5
+__proto__: Object
+items: Array(5)
+0: {kind: "youtube#searchResult", etag: ""SJZWTG6xR0eGuCOh2bX6w3s4F94/z-4-8ZS7WBjxdAkQsCYIrkc2Yi4"", id: {…}, snippet: {…}}
+1:
+kind: "youtube#searchResult"
+etag: ""SJZWTG6xR0eGuCOh2bX6w3s4F94/XWyPkbiV-j7gjEJev9Cknl4DDQ0""
+id: {kind: "youtube#video", videoId: "caj9z17kuyw"}
+snippet: {publishedAt: "2019-11-07T19:00:04.000Z", channelId: "UCo_q6aOlvPH7M-j_XGWVgXg", title: "SURFING GIANT WAVES IN HAWAII (PIPELINE)", description: "WINTER IS HERE! WOKE UP TO GIANT SURF SO I HAD TO … AND CATCH A FEW MYSELF! CHECK OUT MY MERCH: WWW.", thumbnails: {…}, …}
+__proto__: Object
+2: {kind: "youtube#searchResult", etag: ""SJZWTG6xR0eGuCOh2bX6w3s4F94/PYZ4gleO499ovnEt8_WXFyD2ZlA"", id: {…}, snippet: {…}}
+3: {kind: "youtube#searchResult", etag: ""SJZWTG6xR0eGuCOh2bX6w3s4F94/_mOBjnA5mb03qReqVQdkZxSdaUQ"", id: {…}, snippet: {…}}
+4: {kind: "youtube#searchResult", etag: ""SJZWTG6xR0eGuCOh2bX6w3s4F94/ehUlorWN-KIwVssROIKJNyKAlts"", id: {…}, snippet: {…}}
+length: 5
+__proto__: Array(0)
+__proto__:
+constructor: ƒ Object()
+__defineGetter__: ƒ __defineGetter__()
+__defineSetter__: ƒ __defineSetter__()
+hasOwnProperty: ƒ hasOwnProperty()
+__lookupGetter__: ƒ __lookupGetter__()
+__lookupSetter__: ƒ __lookupSetter__()
+arguments: (...)
+caller: (...)
+length: 1
+name: "__lookupSetter__"
+__proto__: ƒ ()
+[[Scopes]]: Scopes[0]
+isPrototypeOf: ƒ isPrototypeOf()
+propertyIsEnumerable: ƒ propertyIsEnumerable()
+toString: ƒ toString()
+valueOf: ƒ valueOf()
+toLocaleString: ƒ toLocaleString()
+get __proto__: ƒ __proto__()
+set __proto__: ƒ __proto__()
+body: "{↵ "kind": "youtube#searchListResponse",↵ "etag": "\"SJZWTG6xR0eGuCOh2bX6w3s4F94/Eyp7myrfO8WgEU4B94s0vWI8dHY\"",↵ "nextPageToken": "CAUQAA",↵ "regionCode": "CA",↵ "pageInfo": {↵  "totalResults": 1119,↵  "resultsPerPage": 5↵ },↵ "items": [↵  {↵   "kind": "youtube#searchResult",↵   "etag": "\"SJZWTG6xR0eGuCOh2bX6w3s4F94/z-4-8ZS7WBjxdAkQsCYIrkc2Yi4\"",↵   "id": {↵    "kind": "youtube#video",↵    "videoId": "OU4d3O_VZCk"↵   },↵   "snippet": {↵    "publishedAt": "2020-02-06T19:00:04.000Z",↵    "channelId": "UCo_q6aOlvPH7M-j_XGWVgXg",↵    "title": "SURFING WITH KELLY SLATER (HAWAII)",↵    "description": "FUN BARRELS, BEATER SPINS, AND GOOD TIMES WITH SOME OF THE REDBULL SKATEBOARD TEAM! STAY PSYCHED MERCH! HTTP://WWW.",↵    "thumbnails": {↵     "default": {↵      "url": "https://i.ytimg.com/vi/OU4d3O_VZCk/default.jpg",↵      "width": 120,↵      "height": 90↵     },↵     "medium": {↵      "url": "https://i.ytimg.com/vi/OU4d3O_VZCk/mqdefault.jpg",↵      "width": 320,↵      "height": 180↵     },↵     "high": {↵      "url": "https://i.ytimg.com/vi/OU4d3O_VZCk/hqdefault.jpg",↵      "width": 480,↵      "height": 360↵     }↵    },↵    "channelTitle": "Jamie O'Brien",↵    "liveBroadcastContent": "none"↵   }↵  },↵  {↵   "kind": "youtube#searchResult",↵   "etag": "\"SJZWTG6xR0eGuCOh2bX6w3s4F94/XWyPkbiV-j7gjEJev9Cknl4DDQ0\"",↵   "id": {↵    "kind": "youtube#video",↵    "videoId": "caj9z17kuyw"↵   },↵   "snippet": {↵    "publishedAt": "2019-11-07T19:00:04.000Z",↵    "channelId": "UCo_q6aOlvPH7M-j_XGWVgXg",↵    "title": "SURFING GIANT WAVES IN HAWAII (PIPELINE)",↵    "description": "WINTER IS HERE! WOKE UP TO GIANT SURF SO I HAD TO GET OUT THERE AND CATCH A FEW MYSELF! CHECK OUT MY MERCH: WWW.",↵    "thumbnails": {↵     "default": {↵      "url": "https://i.ytimg.com/vi/caj9z17kuyw/default.jpg",↵      "width": 120,↵      "height": 90↵     },↵     "medium": {↵      "url": "https://i.ytimg.com/vi/caj9z17kuyw/mqdefault.jpg",↵      "width": 320,↵      "height": 180↵     },↵     "high": {↵      "url": "https://i.ytimg.com/vi/caj9z17kuyw/hqdefault.jpg",↵      "width": 480,↵      "height": 360↵     }↵    },↵    "channelTitle": "Jamie O'Brien",↵    "liveBroadcastContent": "none"↵   }↵  },↵  {↵   "kind": "youtube#searchResult",↵   "etag": "\"SJZWTG6xR0eGuCOh2bX6w3s4F94/PYZ4gleO499ovnEt8_WXFyD2ZlA\"",↵   "id": {↵    "kind": "youtube#video",↵    "videoId": "R86-eGa96bQ"↵   },↵   "snippet": {↵    "publishedAt": "2020-02-13T19:00:04.000Z",↵    "channelId": "UCo_q6aOlvPH7M-j_XGWVgXg",↵    "title": "SURFING WITH 11x WORLD CHAMPION SURFER!! Scored Pipeline, Waimea River &amp; Cleaned Up 300 lbs Of Trash",↵    "description": "GOOD WEATHER OR BAD WEATHER, WE MAKE SURE WE HAVE THE MOST FUN EVERY SINGLE DAY. FUN SURF AT PIPELINE WITH KELLY SLATER ...",↵    "thumbnails": {↵     "default": {↵      "url": "https://i.ytimg.com/vi/R86-eGa96bQ/default.jpg",↵      "width": 120,↵      "height": 90↵     },↵     "medium": {↵      "url": "https://i.ytimg.com/vi/R86-eGa96bQ/mqdefault.jpg",↵      "width": 320,↵      "height": 180↵     },↵     "high": {↵      "url": "https://i.ytimg.com/vi/R86-eGa96bQ/hqdefault.jpg",↵      "width": 480,↵      "height": 360↵     }↵    },↵    "channelTitle": "Jamie O'Brien",↵    "liveBroadcastContent": "none"↵   }↵  },↵  {↵   "kind": "youtube#searchResult",↵   "etag": "\"SJZWTG6xR0eGuCOh2bX6w3s4F94/_mOBjnA5mb03qReqVQdkZxSdaUQ\"",↵   "id": {↵    "kind": "youtube#video",↵    "videoId": "oci0CqUU5KI"↵   },↵   "snippet": {↵    "publishedAt": "2019-11-21T19:00:04.000Z",↵    "channelId": "UCo_q6aOlvPH7M-j_XGWVgXg",↵    "title": "ENDLESS SURF ON THE NORTH SHORE (HAWAII)",↵    "description": "SURFER AWARDS: HELP US PROVE THAT THE STAY PSYCHED COMMUNITY IS THE BEST VLOG FANS IN THE WORLD! VOTE HERE: ...",↵    "thumbnails": {↵     "default": {↵      "url": "https://i.ytimg.com/vi/oci0CqUU5KI/default.jpg",↵      "width": 120,↵      "height": 90↵     },↵     "medium": {↵      "url": "https://i.ytimg.com/vi/oci0CqUU5KI/mqdefault.jpg",↵      "width": 320,↵      "height": 180↵     },↵     "high": {↵      "url": "https://i.ytimg.com/vi/oci0CqUU5KI/hqdefault.jpg",↵      "width": 480,↵      "height": 360↵     }↵    },↵    "channelTitle": "Jamie O'Brien",↵    "liveBroadcastContent": "none"↵   }↵  },↵  {↵   "kind": "youtube#searchResult",↵   "etag": "\"SJZWTG6xR0eGuCOh2bX6w3s4F94/ehUlorWN-KIwVssROIKJNyKAlts\"",↵   "id": {↵    "kind": "youtube#video",↵    "videoId": "R5n6TgvOLgA"↵   },↵   "snippet": {↵    "publishedAt": "2020-02-17T19:00:03.000Z",↵    "channelId": "UCo_q6aOlvPH7M-j_XGWVgXg",↵    "title": "DREAMY SURF AT BANZAI PIPELINE",↵    "description": "CRISTAL CLEAR WATERS, NEW SURFBOARD, AND NO CROWD WITH SOME FUN SIZED WAVES... BEST DAY EVER!! CHECK OUT MY MERCH: ...",↵    "thumbnails": {↵     "default": {↵      "url": "https://i.ytimg.com/vi/R5n6TgvOLgA/default.jpg",↵      "width": 120,↵      "height": 90↵     },↵     "medium": {↵      "url": "https://i.ytimg.com/vi/R5n6TgvOLgA/mqdefault.jpg",↵      "width": 320,↵      "height": 180↵     },↵     "high": {↵      "url": "https://i.ytimg.com/vi/R5n6TgvOLgA/hqdefault.jpg",↵      "width": 480,↵      "height": 360↵     }↵    },↵    "channelTitle": "Jamie O'Brien",↵    "liveBroadcastContent": "none"↵   }↵  }↵ ]↵}↵"
+headers:
+cache-control: "private, max-age=120, must-revalidate, no-transform"
+content-encoding: "gzip"
+content-length: "1292"
+content-type: "application/json; charset=UTF-8"
+date: "Fri, 06 Mar 2020 16:01:05 GMT"
+etag: ""SJZWTG6xR0eGuCOh2bX6w3s4F94/Eyp7myrfO8WgEU4B94s0vWI8dHY""
+expires: "Fri, 06 Mar 2020 16:01:05 GMT"
+server: "GSE"
+vary: "Origin, X-Origin"
+__proto__: Object
+status: 200
+statusText: null
+__proto__: Object
