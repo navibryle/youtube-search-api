@@ -12,7 +12,8 @@
     <a href="category.html">id of categories</a>
     <a></a>
   </nav>
-  <button type="button" onclick="authenticate().then(loadClient)" class="btn btn-lg btn-primary fields">authorize and load</button>
+  <button  id="auth-load" type="button" onclick="authenticate().then(loadClient)" class="btn btn-lg btn-danger fields">authorize and load</button>
+  <span id = "auth" style="color: red;"></span>
   <div id = "input-group" style="width: 60vw;">
     <input name = "q" style="width: 500px;" id = "keyword" type="text" class="form-control fields" placeholder="Keyword" aria-label="Username" aria-describedby="basic-addon1">
     <input name = "regionCode" style="width: 500px;" id = "country" type="text" class="form-control fields" placeholder="Country regioncode i.e 'CA'" aria-label="Username" aria-describedby="basic-addon1">
@@ -23,6 +24,7 @@
   <button type="button" onclick="clear_results()" class="btn btn-lg btn-primary fields">clear results</button>
   <textarea style="width: 27vw;" cols="10" rows="10" id = "comment" type="text" class="form-control fields" placeholder="Comment" aria-label="Username" aria-describedby="basic-addon1"></textarea>
   <button type="button" onclick="insert_all_comments()" class="btn btn-lg btn-primary fields">post all comments</button>
+  <span id="comment-result" style= "color: green;"></span>
   <div id = "content"></div>
   <style>
     #content{
