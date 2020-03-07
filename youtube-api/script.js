@@ -16,15 +16,12 @@
       "part": "snippet",
       "type": "video"
     };
-    
     return set_query(query).then((response)=>{
-      console.log(response);
-      return gapi.client.youtube.search.list(query);})
+      return gapi.client.youtube.search.list(response);})
           .then(function(response) {
-                  console.log("REEEEEEE",response)
+            console.log(response);
                   // Handle the results here (response.result has the parsed body).
                   load_links(response);
-                  
                 },
                 function(err) { alert("Execute error", err); }).catch((err)=>{alert(err);})}
   gapi.load("client:auth2", function() {
@@ -36,15 +33,26 @@
     let parent = document.getElementById("input-group")
     for (let i = parent.firstChild;i !=null;i = i.nextSibling){
       if (i.value != undefined && i.value != ""){
-        query[i.name] = i.value;
-      }
+        if (i.name === "location"){
+          set_location().then((response) => {
+            query["locationRadius"] = "1500m";
+            query["location"] = response;
+          }).catch((err) => {alert(err)})
+        }else{
+          query[i.name] = i.value;
+        }
+        
+      } 
     }
+    resolve(query);
+    /*
     if(query["location"] != null && query["location"] != ""){
       set_location().then((response) => {
+        query["locationRadius"] = "1500m";
         query["location"] = response;
       }).catch((err) => {alert(err)})
     }
-    resolve(query);
+    resolve(query);*/
   })
   
 }
@@ -54,7 +62,7 @@
     let links= "";
     let array = response.result.items;
     for (let i = 0;i<array.length;i++){
-        links += '<button class ="del-button" style="text-align: center; width: 30px;" type="button" onclick="del_link(this)" class="btn btn-lg btn-primary fields">X</button>'+`<a href=${link_prefix+array[i].id.videoId} target="_blank">${array[i].snippet.title}</a><br></br>`
+        links += `<div id =${i}><button class ="del-button" style="text-align: center; width: 30px;" type="button" onclick="del_link(${i})" class="btn btn-lg btn-primary fields">X</button>`+`<a id=link-cont data-videoid="${array[i].id.videoId}" data-channelid="${array[i].snippet.channelId}" href=${link_prefix+array[i].id.videoId} target="_blank">${array[i].snippet.title}</a><br></br></div>`
     }
     document.getElementById("content").innerHTML += links;
   }
@@ -72,10 +80,12 @@
     ).then(
       (data)=>{
         resolve(`${data.results[1].geometry.lat},${data.results[1].geometry.lng}`);
-      }).catch((err) => {alert(err)})
-    reject("Location error");
+      }).catch((err) => {
+        alert(err)
+        reject("Location error");
+      })
     })
-    }
+  }
   
     
   function get_keyword(){
@@ -85,7 +95,39 @@
   function clear_results(){
     document.getElementById("content").innerHTML = "";
   }
-  function del_link(node){
-    node.nextSibling.remove();
-    node.remove();
+  function del_link(id){
+    document.getElementById(id).remove()
+  }
+  function insert_comment(vid_id,chan_id,comm) {
+    console.log(vid_id,chan_id,comm);
+    return gapi.client.youtube.commentThreads.insert({
+      "part": "snippet",
+      "resource": {
+        "snippet": {
+          "videoId": `${vid_id}`,
+          "channelId": `${chan_id}`,
+          "topLevelComment": {
+            "snippet": {
+              "textOriginal": `${comm}`
+            }
+          }
+        }
+      }
+    })
+        .then(function(response) {
+                console.log("response");
+              },
+              function(err) { console.error("Execute error", err); });
+  }
+  gapi.load("client:auth2", function() {
+    gapi.auth2.init({client_id: "992905496519-0827e2lhq9ri48u2s5r0ipq8nhbtish1.apps.googleusercontent.com"});
+  });
+  function insert_all_comments(){
+    let parent = document.getElementById("content")
+    let comment = document.getElementById("comment").value
+    for (let i = parent.firstChild; i != null; i = i.nextSibling){
+      if (i.id === "link-cont"){
+        insert_comment(i.getAttribute('data-videoid'),i.getAttribute('data-channelid'),comment);
+      }
+    }
   }
