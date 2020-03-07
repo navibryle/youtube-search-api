@@ -1,9 +1,3 @@
-/**
-   * Sample JavaScript code for youtube.search.list
-   * See instructions for running APIs Explorer code samples locally:
-   * https://developers.google.com/explorer-help/guides/code_samples#javascript
-   */
-
   function authenticate() {
     return gapi.auth2.getAuthInstance()
         .signIn({scope: "https://www.googleapis.com/auth/youtube.force-ssl"})
@@ -17,72 +11,81 @@
               function(err) { console.error("Error loading GAPI client for API", err); });
   }
   // Make sure the client is loaded and sign-in is complete before calling this method.
-  function execute() {
-    return gapi.client.youtube.search.list({
+  function proc_query(query) {
+    var query = {
       "part": "snippet",
-      "location": "21.5922529,-158.1147114",
-      "locationRadius": "10mi",
-      "q": "surfing",
       "type": "video"
-    })
-        .then(function(response) {
-                // Handle the results here (response.result has the parsed body).
-                load_links(response);
-                console.log(response)
-              },
-              function(err) { console.error("Execute error", err); });
-  }
+    };
+    
+    return set_query(query).then((response)=>{
+      console.log(response);
+      return gapi.client.youtube.search.list(query);})
+          .then(function(response) {
+                  console.log("REEEEEEE",response)
+                  // Handle the results here (response.result has the parsed body).
+                  load_links(response);
+                  
+                },
+                function(err) { alert("Execute error", err); }).catch((err)=>{alert(err);})}
   gapi.load("client:auth2", function() {
     gapi.auth2.init({client_id: "992905496519-0827e2lhq9ri48u2s5r0ipq8nhbtish1.apps.googleusercontent.com"});
   });
-
+  function set_query(query){
+    //this function will mutate query
+    return new Promise((resolve,reject) => {
+    let parent = document.getElementById("input-group")
+    for (let i = parent.firstChild;i !=null;i = i.nextSibling){
+      if (i.value != undefined && i.value != ""){
+        query[i.name] = i.value;
+      }
+    }
+    if(query["location"] != null && query["location"] != ""){
+      set_location().then((response) => {
+        query["location"] = response;
+      }).catch((err) => {alert(err)})
+    }
+    resolve(query);
+  })
+  
+}
   function load_links (response){
+    console.log("links");
     let link_prefix = "https://www.youtube.com/watch?v="
     let links= "";
     let array = response.result.items;
     for (let i = 0;i<array.length;i++){
-        links += `<a href =${link_prefix+array[i].id.videoId} target="_blank">${array[i].snippet.title}</a><br></br>`
+        links += '<button class ="del-button" style="text-align: center; width: 30px;" type="button" onclick="del_link(this)" class="btn btn-lg btn-primary fields">X</button>'+`<a href=${link_prefix+array[i].id.videoId} target="_blank">${array[i].snippet.title}</a><br></br>`
     }
     document.getElementById("content").innerHTML += links;
   }
-/*
-  function (category){
-      let category_list = {
-        "Autos":2,
-        "Vehicles":2,
-        "Film":1,
-        "Animation":1,
-        "Music":10,
-        "Pets":15,
-        "Animals":15,
-        "Sports":17,
-        "Short Movies":18,
-        19 : "Travel & Events",
-        20 : "Gaming"
-        21 : "Videoblogging"
-        22 : "People & Blogs"
-        23 : "Comedy"
-        24 : "Entertainment"
-        25 : "News & Politics"
-        26 : "Howto & Style"
-        27 : "Education"
-        28 : "Science & Technology"
-        29 : "Nonprofits & Activism"
-        30 : "Movies"
-        31 : "Anime/Animation"
-        32 : "Action/Adventure"
-        33 : "Classics"
-        34 : "Comedy"
-        35 : "Documentary"
-        36 : "Drama"
-        37 : "Family"
-        38 : "Foreign"
-        39 : "Horror"
-        40 : "Sci-Fi"
-        40:  "Fantasy"
-        41 : "Thriller"
-        42 : "Shorts"
-        43 : "Shows"
-        44 : "Trailers"
+  function set_location(){//this is using open cage api
+    /* IMPORTANT THIS FUNCTION WILL GET THE FIRST LAT AND  LONG THIS API OUTPUTS. THERE ARE MULTIPLE LAT'S AND
+    LONGS DUE TO PLACES HAVING THE SAME NAME*/
+    //this function will return longitude and lattitude
+    //api_link: https://opencagedata.com/api
+    return new Promise((resolve,reject) =>{
+    let location = document.getElementById("location").value;
+    fetch(`https://api.opencagedata.com/geocode/v1/json?q=${location}&key=c0633f4db3984c34b3b33abb33d6f3c3`).then(
+      (response) => {
+        return response.json();
       }
-  }*/
+    ).then(
+      (data)=>{
+        resolve(`${data.results[1].geometry.lat},${data.results[1].geometry.lng}`);
+      }).catch((err) => {alert(err)})
+    reject("Location error");
+    })
+    }
+  
+    
+  function get_keyword(){
+    console.log(document.getElementById("keyword"));
+    return document.getElementById("keyword").value;
+  }
+  function clear_results(){
+    document.getElementById("content").innerHTML = "";
+  }
+  function del_link(node){
+    node.nextSibling.remove();
+    node.remove();
+  }

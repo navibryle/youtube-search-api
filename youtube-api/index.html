@@ -1,48 +1,48 @@
 
 <!DOCTYPE html>
-<html>
+<html style="height: 100vh; width: 100vw; overflow-y: hidden;">
   <header>
     <script src="https://apis.google.com/js/api.js"></script>
     <script type="text/javascript" src="script.js"></script>
     <meta name="viewport" content="initial-scale=1.0">
     <meta charset="utf-8">
-
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   </header>
-  <button type="button" onclick="authenticate().then(loadClient)" class="btn btn-lg btn-primary" disabled>authorize and load</button>
-  <button type="button" onclick="execute()" class="btn btn-lg btn-primary" disabled>execute</button>
-  <input id = "keyword' type="text" class="form-control" placeholder="Keyword" aria-label="Username" aria-describedby="basic-addon1">
-  <input id = "location" type="text" class="form-control" placeholder="Location" aria-label="Username" aria-describedby="basic-addon1">
-  <div id="map-body">
-    <div id="map"></div>
-    <script>
-      var map;
-      function initMap() {
-        map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: -34.397, lng: 150.644},
-          zoom: 8
-        });
-      }
-    </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDvykc4-5gdVYpFHCbXJUbZlogbipWhN3M&callback=initMap"
-    async defer></script>
-    <style>
-      /* Always set the map height explicitly to define the size of the div
-       * element that contains the map. */
-      #map {
-        height: 100%;
-        width: 100%;
-      }
-      /* Optional: Makes the sample page fill the window. */
-      #map-body{
-        height: 500px;
-        width: 500px;
-        margin: 0;
-        padding: 0;
-      }
-    </style>
-
+  <nav class="navbar navbar-dark bg-dark">
+    <a href="category.html">id of categories</a>
+    <a></a>
+  </nav>
+  <button type="button" onclick="authenticate().then(loadClient)" class="btn btn-lg btn-primary fields">authorize and load</button>
+  <div id = "input-group" style="width: 60vw;">
+    <input name = "q" style="width: 500px;" id = "keyword" type="text" class="form-control fields" placeholder="Keyword" aria-label="Username" aria-describedby="basic-addon1">
+    <input name = "location" style="width: 500px;" id = "location" type="text" class="form-control fields" placeholder="Location" aria-label="Username" aria-describedby="basic-addon1">
+    <input name = "regionCode" style="width: 500px;" id = "country" type="text" class="form-control fields" placeholder="Country regioncode i.e 'CA'" aria-label="Username" aria-describedby="basic-addon1">
+    <input name = "videoCategoryId" style="width: 500px;" id = "category" type="text" class="form-control fields" placeholder="Category" aria-label="Username" aria-describedby="basic-addon1">
+    <input name = "maxResults" style="width: 500px;" id = "num-result" type="text" class="form-control fields" placeholder="Number of results" aria-label="Username" aria-describedby="basic-addon1">
   </div>
-  <p id="content"></p>
+  <button type="button" onclick="proc_query()" class="btn btn-lg btn-primary fields">submit</button>
+  <button type="button" onclick="clear_results()" class="btn btn-lg btn-primary fields">clear results</button>
+  <div id = "content"></div>
+  <style>
+    #content{
+      position: relative;
+      left:40vw;
+      top:-38vh;
+      overflow-y: auto;
+      overflow-x: auto;
+      height:90vh;
+      width: 50vw;
+    }
+    .fields{
+      margin: 10px;
+    }
+    .del-button{
+      opacity: 0.3;
+      margin:2px;
+    }
+    .del-button:hover{
+      opacity: 1;
+    }
+  </style>
 </html>
 
